@@ -2,7 +2,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import logo from './logo.svg';
 import './App.css';
-import NavBar from './NavBar';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
