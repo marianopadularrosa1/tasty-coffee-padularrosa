@@ -1,41 +1,29 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import logo from './logo.svg';
-import './App.css';
-import NavBar from './components/NavBar';
+import logo from "./logo.svg";
+import "./App.css";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import ItemListContainer from "./components/ItemListContainer";
 
 function App() {
   return (
     <div className="App">
-       <BrowserRouter>
+      <BrowserRouter>
         <NavBar />
         <Switch>
-          <Route exact path="/">
-          </Route>
-          <Route exact path="/products">
-          </Route>
-          <Route exact path="/category/:categoryid">
-          </Route>
-          <Route exact path="/item/:id">
-          </Route>
-          <Route exact path="/cart">
-          </Route>
+          <Route exact path="/"></Route>
+          <Route exact path="/products"></Route>
+          <Route exact path="/category/:categoryid"></Route>
+          <Route exact path="/item/:id"></Route>
+          <Route exact path="/cart"></Route>
         </Switch>
       </BrowserRouter>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ItemListContainer greetings="GREETINGS" />
       </header>
+      <Footer nombreMarca="TastyCoffee" anio={2021}></Footer>
     </div>
   );
 }
