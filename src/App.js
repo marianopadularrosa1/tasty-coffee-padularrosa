@@ -20,8 +20,8 @@ function App() {
         </Switch>
       </BrowserRouter>
       <header className="App-header">
+         <ItemListContainer greetings="GREETINGS" />
         <img src={logo} className="App-logo" alt="logo" />
-        <ItemListContainer greetings="GREETINGS" />
       </header>
       <Footer nombreMarca="TastyCoffee" anio={2021}></Footer>
     </div>
