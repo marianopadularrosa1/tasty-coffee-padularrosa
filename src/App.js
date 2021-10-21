@@ -5,8 +5,12 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import ItemListContainer from "./components/ItemListContainer";
+import ItemCount from "./components/ItemCount";
+import { useState } from "react";
 
 function App() {
+  const [cantidad, setCantidad] = useState();
+ 
   return (
     <div className="App">
       <BrowserRouter>
@@ -20,7 +24,7 @@ function App() {
         </Switch>
       </BrowserRouter>
       <header className="App-header">
-         <ItemListContainer greetings="GREETINGS" />
+        <ItemListContainer greetings="GREETINGS" />
         <img src={logo} className="App-logo" alt="logo" />
       </header>
       <Footer nombreMarca="TastyCoffee" anio={2021}></Footer>
