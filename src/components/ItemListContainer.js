@@ -1,17 +1,40 @@
-import ItemCount from "./ItemCount";
+
+import {  useState,useEffect } from "react";
+import ItemList from "./ItemList";
 
 
-export default function ItemListContainer({greetings}) {
-  const onAdd = (producto) => {
-    console("agregaron un producto", producto);
-  };
-  const stock = 8;
- 
+export default function ItemListContainer() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setLoading(true);
+    const fetchData = async () => {
+        await fetch('/products.json')
+          .then((res) => res.json())
+          .then((res) => {
+              setProducts(res);
+            })
+          .catch((e) => console.error(e));
+      };
+      const timer = setTimeout(() => {
+        fetchData();
+        setLoading(false);
+      }, 2000);
+      
+      return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="App">
+        <h1>Loading Products Data....</h1>
+      </div>
+    );
+  }else{
   return (
-    <>
-      <p >{greetings}</p> 
-      <ItemCount onAdd={onAdd} initial={0} stock={parseInt(stock)} />
-    </>
+    <div className="App">
+      <ItemList productos={products} />
+    </div>
   );
-
+}
 }
