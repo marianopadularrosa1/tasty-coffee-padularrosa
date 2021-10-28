@@ -5,9 +5,9 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import ItemListContainer from "./components/ItemListContainer";
-import ItemCount from "./components/ItemCount";
 import { useState } from "react";
 import Home from "./pages/Home";
+import ItemDetailContainer from "./components/ItemDetailContainer";
 
 function App() {
   const [cantidad, setCantidad] = useState();
@@ -24,7 +24,9 @@ function App() {
             <ItemListContainer  />
           </Route>
           <Route exact path="/category/:categoryid"></Route>
-          <Route exact path="/item/:id"></Route>
+          <Route exact path="/item/:id">
+            <ItemDetailContainer/>
+          </Route>
           <Route exact path="/cart"></Route>
         </Switch>
       </BrowserRouter>

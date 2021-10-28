@@ -10,9 +10,9 @@ export default function ItemListContainer() {
     setLoading(true);
     const fetchData = async () => {
         await fetch('/products.json')
-          .then((res) => res.json())
-          .then((res) => {
-              setProducts(res);
+          .then((respuesta) => respuesta.json())
+          .then((productos) => {
+              setProducts(productos);
             })
           .catch((e) => console.error(e));
       };

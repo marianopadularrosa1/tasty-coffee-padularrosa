@@ -6,8 +6,8 @@ export default function Item({ item }) {
   return (
     <>
       <div>
-        <div class="card text-center" style={{ border: "1px solid black", margin: "1px" }} >
-          <div class="card-header" style={{ fontStyle: "italic" , color:"black", backgroundcolor: `rgb(40, 44, 52)`}}>
+        <div className="card text-center" style={{ border: "1px solid black", margin: "1px" }} >
+          <div className="card-header" style={{ fontStyle: "italic" , color:"black", backgroundcolor: `rgb(40, 44, 52)`}}>
             {item.title}</div>
           <div class="card-body">
             <h5 class="card-title">{item.title}</h5>
