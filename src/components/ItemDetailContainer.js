@@ -10,7 +10,7 @@ export default function ItemDetailContainer() {
 
   useEffect(() => {
     setLoading(true);
-    const fetchData = () => {
+    const getItem = () => {
       fetch("/products.json")
         .then((res) => res.json())
         .then((products) => {
@@ -19,9 +19,9 @@ export default function ItemDetailContainer() {
         .catch((e) => console.error(e));
     };
     const timer = setTimeout(() => {
-      fetchData();
+      getItem();
       setLoading(false);
-    }, 0);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
