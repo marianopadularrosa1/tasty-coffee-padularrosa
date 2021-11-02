@@ -8,12 +8,13 @@ import ItemListContainer from "./components/ItemListContainer";
 import { useState } from "react";
 import Home from "./pages/Home";
 import ItemDetailContainer from "./components/ItemDetailContainer";
-
+import { ChakraProvider } from "@chakra-ui/react"
 function App() {
   const [cantidad, setCantidad] = useState();
  
   return (
     <div className="App">
+       <ChakraProvider>
       <BrowserRouter>
         <NavBar />
         <Switch>
@@ -34,6 +35,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
       <Footer nombreMarca="TastyCoffee" anio={2021}></Footer>
+      </ChakraProvider>
     </div>
   );
 }

@@ -1,35 +1,44 @@
 import { Link } from "react-router-dom";
+import { Center,Box,Badge} from "@chakra-ui/react"
 // se le dice a un componente bruto
 // un componente que no tiene estado
 // que solo recibe unas propiedades y las pinta
 export default function Item({ item }) {
   return (
     <>
-      <div>
-        <div className="card text-center" style={{ border: "1px solid black", margin: "1px" }} >
-          <div className="card-header" style={{ fontStyle: "italic" , color:"black", backgroundcolor: `rgb(40, 44, 52)`}}>
-            {item.title}</div>
+    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" display="flex">
+    
+        <div  className="card " style={{ border: "1px solid black" }}>
+        <Box
+          mt="1"
+          fontWeight="semibold"
+          as="h4"
+          lineHeight="tight"
+          isTruncated
+          backgroundColor="grey"
+          color="white"
+        >
+          {item.title}
+        </Box>
+          
           <div class="card-body">
-            <h5 class="card-title">{item.title}</h5>
-            <p class="card-text">
-            {item.description}
-            </p>
+            <p class="card-text">{item.description}</p>
+            <Center>
             <img
               src={`${item.img}`}
               className="card-img-top"
               alt="..."
-              style={{ height: 200, width: 200 }}
+              style={{ height: 150, width: 150 }}
             />
-            
+            </Center>
           </div>
           <Link to={`/item/${item.id}`} type="button" class="btn btn-primary">
             {" "}
             ver detalle del producto
           </Link>
-          
         </div>
-        
-      </div>
+      
+      </Box>
     </>
   );
 }
