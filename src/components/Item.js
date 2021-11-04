@@ -6,7 +6,7 @@ import { Center,Box,Badge} from "@chakra-ui/react"
 export default function Item({ item }) {
   return (
     <>
-    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" display="flex">
+    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" display="center">
     
         <div  className="card " style={{ border: "1px solid black" }}>
         <Box
@@ -21,8 +21,8 @@ export default function Item({ item }) {
           {item.title}
         </Box>
           
-          <div class="card-body">
-            <p class="card-text">{item.description}</p>
+          <div className="card-body">
+            <p className="card-text">{item.description}</p>
             <Center>
             <img
               src={`${item.img}`}

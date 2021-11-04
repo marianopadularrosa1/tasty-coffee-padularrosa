@@ -1,5 +1,6 @@
 import Item from "./Item";
 
+
 export default function ItemList({productos}) {
   
   
@@ -11,6 +12,7 @@ export default function ItemList({productos}) {
             {productos.map((eachProduct) => (
               <Item item={eachProduct} />
             ))}
+             
           </div>
       
       </>
