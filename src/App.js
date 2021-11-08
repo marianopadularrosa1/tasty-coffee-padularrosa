@@ -9,25 +9,28 @@ import { useState } from "react";
 import Home from "./pages/Home";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import { ChakraProvider } from "@chakra-ui/react";
+import { CustomProvider } from "./components/cartContext";
+import Cart from "./components/Cart"
+import { contexto } from "./components/cartContext";
+
 function App() {
-  const [cantidad, setCantidad] = useState();
+  //console.log('CART HOME'+JSON.stringify(contexto));
 
   return (
     <ChakraProvider>
       <BrowserRouter>
+      <CustomProvider>
         <NavBar />
         <Switch>
           <Route  path="/" component={Home} exact/>
-           
           <Route exact path="/products" component={ItemListContainer}/>
           <Route exact path="/category/:categoryId" component={ItemListContainer}/>
           <Route exact path="/item/:id" component={ItemDetailContainer} />
-          <Route exact path="/cart"></Route>
+          <Route path="/cart" component={Cart} />
         </Switch>
+      </CustomProvider>
       </BrowserRouter>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
+     
       <Footer nombreMarca="TastyCoffee" anio={2021}></Footer>
     </ChakraProvider>
   );

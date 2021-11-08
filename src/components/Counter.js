@@ -1,12 +1,8 @@
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 
-const Counter = ({onClick}) => {
+const Counter = ({onAdd}) => {
 
     const [contador,setContador] = useState(0)
-
-    /* useEffect(()=>{
-        console.log("Se reejecuto el contador")
-    },[]) */
 
     const sumar = () => {
         setContador(contador + 1)
@@ -16,12 +12,16 @@ const Counter = ({onClick}) => {
         setContador(contador - 1)
     }
 
+    const confirmar = () => {
+        onAdd(contador)
+    }
+
     return (
         <div>
             <p>El contador va : {contador} </p>          
-            <button onClick={sumar} className="material-icons">add</button>  
-            <button onClick={restar} className="material-icons">remove</button>  
-            <button onClick={ () => onClick(contador) }>confirmar compra</button>
+            <button class="btn btn-primary" onClick={sumar} >Agregar</button>  
+            <button class="btn btn-primary" onClick={restar} >Restar</button>  
+            <button class="btn btn-primary" onClick={ confirmar }>confirmar compra</button>
         </div>
     )
 }

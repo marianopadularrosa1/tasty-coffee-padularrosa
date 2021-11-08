@@ -7,7 +7,6 @@ import ItemList from "./ItemList";
 
 export default function ItemListContainer() {
   const {categoryId} = useParams();
-  console.log('categoryId--->'+categoryId);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -38,7 +37,7 @@ export default function ItemListContainer() {
     return (
       <div className="App" >
         
-          <h1>Loading Products Data....</h1>
+          <h1>Cargando....</h1>
       </div>
     );
   }else{

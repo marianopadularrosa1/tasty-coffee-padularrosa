@@ -29,14 +29,14 @@ export default function ItemDetailContainer() {
   if (loading) {
     return (
       <div className="App">
-        <h1>Loading Product Data....</h1>
+        <h1>Cargando....</h1>
       </div>
     );
   } else {
     return (
       <>
         <div className="row container-fluid">
-          <ItemDetail {...product} />;
+        <ItemDetail producto={product} />
         </div>
       </>
     );
