@@ -3,7 +3,7 @@ import { Center} from "@chakra-ui/react"
 import { useContext } from "react";
 import { contexto } from "./cartContext";
 import { useHistory } from "react-router-dom"
-import Counter from "./Counter";
+import ItemCount from "./ItemCount";
 export default function ItemDetail({producto}) {
   const {push} = useHistory()
   const {cart,agregarProducto,vaciar,borrarProducto} = useContext(contexto)
@@ -40,7 +40,7 @@ export default function ItemDetail({producto}) {
           <p className="card-text">$ {producto.price}</p>
           <p className="card-text">{producto.description}</p>
           <p className="card-text">Stock: {producto.stock}</p>
-          <Counter onAdd={onAdd} />
+          <ItemCount onAdd={onAdd} />
           <button  class="btn btn-primary" onClick={borrarProd}>Borrar Producto</button>
           <button  class="btn btn-primary" onClick={vaciarCart}>Vaciar Carrito</button>
           <button  class="btn btn-primary" onClick={verCarrito}>Ver Carrito</button>
