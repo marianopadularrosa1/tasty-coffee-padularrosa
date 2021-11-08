@@ -41,9 +41,9 @@ export default function ItemDetail({producto}) {
           <p className="card-text">{producto.description}</p>
           <p className="card-text">Stock: {producto.stock}</p>
           <ItemCount onAdd={onAdd} />
-          <button  class="btn btn-primary" onClick={borrarProd}>Borrar Producto</button>
-          <button  class="btn btn-primary" onClick={vaciarCart}>Vaciar Carrito</button>
-          <button  class="btn btn-primary" onClick={verCarrito}>Ver Carrito</button>
+          <button  className="btn btn-primary" onClick={borrarProd}>Borrar Producto</button>
+          <button  className="btn btn-primary" onClick={vaciarCart}>Vaciar Carrito</button>
+          <button  className="btn btn-primary" onClick={verCarrito}>Ver Carrito</button>
           
         </div>
       </div>
