@@ -36,8 +36,7 @@ export const CustomProvider = ({children}) => {
             console.log('Encontro producto')
             return true
         }
-        else{return false}    
-        
+        else {return false}
     }
 
     const borrarProducto = (producto) => {
