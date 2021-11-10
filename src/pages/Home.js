@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <>
       <div className="App-header">
-        <div class="container"></div>
+        <div className="container"></div>
         <h1>Bienvenido a Tasty Coffee</h1>
         <img
           src="https://cafesabora.com/sites/default/files/taza-para-cafe_0.jpg"

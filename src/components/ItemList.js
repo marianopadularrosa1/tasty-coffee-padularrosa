@@ -7,15 +7,14 @@ export default function ItemList({productos}) {
     return (
       <>
        
-          <h1>Productos</h1>
-          <div className="row container-fluid">
-            {productos.map((eachProduct) => (
-              <Item item={eachProduct} />
+          <div className="row container-fluid" style={{width:"100%", height:"100%"}}>
+            {productos.map((eachProduct,i) => (
+              <Item key={i} item={eachProduct} />
             ))}
              
           </div>
       
       </>
-    );
+    )
   }
 

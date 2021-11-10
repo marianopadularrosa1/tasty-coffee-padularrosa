@@ -1,12 +1,13 @@
 import React from "react"
+import { Box} from "@chakra-ui/react"
 
 const Footer = ({nombreMarca,anio}) => {
 
-    console.log(nombreMarca);
+    
     return (
-        <div>
+        <Box maxW="sm4" borderRadius="lg" overflow="hidden">
             {nombreMarca} Todos los derechos reservados {anio} Copyright &copy;
-        </div>
+        </Box>
     )
 }
 

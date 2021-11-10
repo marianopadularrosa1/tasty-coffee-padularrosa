@@ -31,8 +31,9 @@ export default function Item({ item }) {
               style={{ height: 150, width: 150 }}
             />
             </Center>
+            <Badge>{item.badge}</Badge>
           </div>
-          <Link to={`/item/${item.id}`} type="button" class="btn btn-primary">
+          <Link to={`/item/${item.id}`} type="button" className="btn btn-primary">
             {" "}
             ver detalle del producto
           </Link>

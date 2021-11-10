@@ -57,6 +57,7 @@ export const CustomProvider = ({children}) => {
 
     const valor_de_contexto = { 
         cart : cart , 
+        setCart : setCart , 
         agregarProducto : agregarProducto , 
         borrarProducto : borrarProducto , 
         vaciar : vaciar 

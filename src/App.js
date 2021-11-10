@@ -11,27 +11,29 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import { ChakraProvider } from "@chakra-ui/react";
 import { CustomProvider } from "./components/cartContext";
 import Cart from "./components/Cart"
+import { Center,Box,Badge} from "@chakra-ui/react"
 import { contexto } from "./components/cartContext";
 
 function App() {
-  //console.log('CART HOME'+JSON.stringify(contexto));
 
   return (
     <ChakraProvider>
       <BrowserRouter>
+      
       <CustomProvider>
         <NavBar />
+        <Box style={{display: "block", width: "100%", flex:"1",position: "relative", paddingBottom:"20px"}}>
         <Switch>
-          <Route  path="/" component={Home} exact/>
+          <Route path="/" component={Home} exact/>
           <Route exact path="/products" component={ItemListContainer}/>
           <Route exact path="/category/:categoryId" component={ItemListContainer}/>
           <Route exact path="/item/:id" component={ItemDetailContainer} />
           <Route path="/cart" component={Cart} />
         </Switch>
+        </Box>
       </CustomProvider>
       </BrowserRouter>
-     
-      <Footer nombreMarca="TastyCoffee" anio={2021}></Footer>
+      <Footer className="footer" nombreMarca="TastyCoffee" anio={2021}></Footer>
     </ChakraProvider>
   );
 }

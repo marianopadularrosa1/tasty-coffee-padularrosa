@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+.main-wrapper{
+  position: relative;
+ min-height: 100vh;
+}
+
+.footer{
+  
+  min-height:50px; background:PapayaWhip;
+}

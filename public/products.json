@@ -7,7 +7,8 @@
       "price": 200,
       "stock": 2,
       "img": "https://http2.mlstatic.com/D_NQ_NP_949230-MLA31019456595_062019-O.webp",
-      "category": "molido"
+      "category": "molido",
+      "badge": "NEW"
     },
     {
       "id": "2",
@@ -17,7 +18,8 @@
       "price": 1400,
       "stock": 14,
       "img": "https://http2.mlstatic.com/D_NQ_NP_2X_923271-MLA31019410000_062019-F.webp",
-      "category": "grano"
+      "category": "grano",
+      "badge": "PREMIUM"
     },
     {
       "id": "3",
@@ -27,7 +29,8 @@
       "price": 1000,
       "stock": 100,
       "img": "https://http2.mlstatic.com/D_NQ_NP_2X_923271-MLA31019410000_062019-F.webp",
-      "category": "grano"
+      "category": "grano",
+      "badge": "EXOTIC"
     },
     {
       "id": "4",
@@ -37,6 +40,7 @@
       "price": 300,
       "stock": 3,
       "img": "https://http2.mlstatic.com/D_NQ_NP_949230-MLA31019456595_062019-O.webp",
-      "category": "molido"
+      "category": "molido",
+      "badge": "CLASSIC"
     }
 ]
