@@ -73,8 +73,6 @@ export const CustomProvider = ({children}) => {
         let amount = 0
         for(let i=0; i<cart.length; i++){
             amount+= (cart[i].cantidad * cart[i].producto.price)
-            console.log("cantidad:"+cart[i].cantidad)
-            console.log("price:"+cart[i].producto.price)
         }
         return amount
     }

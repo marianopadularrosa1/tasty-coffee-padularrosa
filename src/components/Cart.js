@@ -26,7 +26,7 @@ const Cart = () => {
             <CartView key={i} item={eachProduct} />
           ))}
         </VStack>
-        <p>{cartWidgetAmount}</p>
+        <p>Total: $ {cartWidgetAmount()}.-</p>
       </div>
     );
   } else {
