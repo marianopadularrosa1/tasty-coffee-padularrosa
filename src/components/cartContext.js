@@ -63,16 +63,18 @@ export const CustomProvider = ({children}) => {
     }
 
     const cartWidgetCant=()=>{
-        let cantidadTotal = 0;
+        let cantidadTotal = 0
         for(let i=0; i<cart.length; i++){
-            cantidadTotal+= cart[i].cantidad;
+            cantidadTotal+= cart[i].cantidad
         }
         return cantidadTotal
     }
     const cartWidgetAmount=()=>{
-        let amount = 0;
+        let amount = 0
         for(let i=0; i<cart.length; i++){
-            amount+= (cart[i].cantidad * cart[i].precio);
+            amount+= (cart[i].cantidad * cart[i].producto.price)
+            console.log("cantidad:"+cart[i].cantidad)
+            console.log("price:"+cart[i].producto.price)
         }
         return amount
     }
