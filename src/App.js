@@ -1,18 +1,16 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import logo from "./logo.svg";
+
 import "./App.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import ItemListContainer from "./components/ItemListContainer";
-import { useState } from "react";
 import Home from "./pages/Home";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import { ChakraProvider } from "@chakra-ui/react";
 import { CustomProvider } from "./components/cartContext";
 import Cart from "./components/Cart"
-import { Center,Box,Badge} from "@chakra-ui/react"
-import { contexto } from "./components/cartContext";
+import { Box} from "@chakra-ui/react"
 
 function App() {
 

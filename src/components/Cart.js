@@ -4,17 +4,30 @@ import { VStack } from "@chakra-ui/react";
 import CartView from "./CartView";
 
 const Cart = () => {
+  const {
+    cart,
+    agregarProducto,
+    vaciar,
+    borrarProducto,
+    cartWidgetCant,
+    cartWidgetAmount,
+  } = useContext(contexto);
   const resultado = useContext(contexto);
   console.log(resultado);
   console.log("resultado:" + JSON.stringify(resultado));
+  console.log("cartWidgetCant:" + cartWidgetCant());
+  console.log("cartWidgetAmount:" + cartWidgetAmount());
 
-  if (resultado.cart.length> 0) {
+  if (resultado.cart.length > 0) {
     return (
-      <VStack>
-        {resultado.cart.map((eachProduct,i) => (
-          <CartView key={i} item={eachProduct} />
-        ))}
-      </VStack>
+      <div>
+        <VStack>
+          {resultado.cart.map((eachProduct, i) => (
+            <CartView key={i} item={eachProduct} />
+          ))}
+        </VStack>
+        <p>{cartWidgetAmount}</p>
+      </div>
     );
   } else {
     return (

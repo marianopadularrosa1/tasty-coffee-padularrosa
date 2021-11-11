@@ -6,15 +6,17 @@ import { useHistory } from "react-router-dom"
 import ItemCount from "./ItemCount";
 export default function ItemDetail({producto}) {
   const {push} = useHistory()
-  const {cart,agregarProducto,vaciar,borrarProducto} = useContext(contexto)
+  const {cart,agregarProducto,vaciar,borrarProducto,cartWidgetCant} = useContext(contexto)
   const [mostrar, setMostrar] = useState(false)
   console.log('CART-->'+JSON.stringify(cart));
   const onAdd = (cantidad) => {
-    //if(cantidad>producto.stock) => no agregar
+    if(cantidad<=0) return;
     agregarProducto(cantidad,producto)
+    console.log('cartWidgetCant-->'+cartWidgetCant());
     console.log('AGREGADO A CART-->'+JSON.stringify(cart))
-    if(cantidad>0){
-      setMostrar(!mostrar)
+    console.log('LENGTH CART-->'+cart.length)
+    if(JSON.stringify(cart.length)>=0){
+      setMostrar(true)
     }
     else{
       setMostrar(false)
