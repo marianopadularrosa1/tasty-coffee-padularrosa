@@ -20,7 +20,7 @@ function App() {
       
       <CustomProvider>
         <NavBar />
-        <Box style={{display: "block", width: "100%", flex:"1",position: "relative", paddingBottom:"20px"}}>
+        <Box style={{display: "block", width: "100%", flex:"1",position: "relative", paddingBottom:"20px", flexGrow: "1"}}>
         <Switch>
           <Route path="/" component={Home} exact/>
           <Route exact path="/products" component={ItemListContainer}/>

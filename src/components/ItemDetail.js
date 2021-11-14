@@ -8,7 +8,13 @@ export default function ItemDetail({producto}) {
   const {push} = useHistory()
   const {cart,agregarProducto,vaciar,borrarProducto,cartWidgetCant} = useContext(contexto)
   const [mostrar, setMostrar] = useState(false)
+  const [mostrarTerminarMiCompra, setMostrarTerminarMiCompra] = useState(false)
   console.log('CART-->'+JSON.stringify(cart));
+  console.log('producto-->'+JSON.stringify(producto));
+
+
+ 
+
   const onAdd = (cantidad) => {
     if(cantidad<=0) return;
     agregarProducto(cantidad,producto)
@@ -17,9 +23,11 @@ export default function ItemDetail({producto}) {
     console.log('LENGTH CART-->'+cart.length)
     if(JSON.stringify(cart.length)>=0){
       setMostrar(true)
+      setMostrarTerminarMiCompra(true)
     }
     else{
       setMostrar(false)
+      setMostrarTerminarMiCompra(false)
     }
   };
   const vaciarCart= ()=>{
@@ -52,7 +60,7 @@ export default function ItemDetail({producto}) {
           <ItemCount onAdd={onAdd} />
           {mostrar && <button  className="btn btn-primary" onClick={borrarProd}>Borrar Producto</button>}
           {mostrar && <button  className="btn btn-primary" onClick={vaciarCart}>Vaciar Carrito</button>}
-          {mostrar && <button  className="btn btn-primary" onClick={verCarrito}>Ver Carrito</button>}
+          {mostrarTerminarMiCompra && <button  className="btn btn-primary" onClick={verCarrito}>Ver Carrito</button>}
           
         </div>
       </div>

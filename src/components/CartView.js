@@ -1,18 +1,22 @@
-import { useContext, React,useState } from "react";
+import { useContext, React, useState, useEffect } from "react";
 import { contexto } from "./cartContext";
 import { Box, Center } from "@chakra-ui/react";
 
 const CartView = ({ key, item }) => {
-  const {cart,vaciar,borrarProducto} = useContext(contexto)
-  const [producto, setProducto] = useState(item)
+  const { cart, borrarProducto } = useContext(contexto);
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    setProducts(cart);
+  }, [cart, products]);
 
-  const borrarProd= ()=>{
-    borrarProducto(item)
-    setProducto(item)
-  }
+  const borrarProd = () => {
+    borrarProducto(item);
+    console.log("Borrar :" + JSON.stringify(item));
+    console.log("Cart :" + JSON.stringify(cart));
+  };
   return (
-    <Center>
-      <Box>
+    <Center bg="white" color="black">
+      <Box  p={5} shadow="md" borderWidth="1px" >
         <Box h="40px" bg="yellow.200">
           {key} Producto: {item.producto.title}, Precio Unitario:
           {item.producto.price} Cantidad: {item.cantidad}
@@ -29,7 +33,11 @@ const CartView = ({ key, item }) => {
             />
           </Box>
         </Center>
-      <button  className="btn btn-primary" onClick={borrarProd}>Borrar Producto</button>
+        <Center>
+        <button className="btn btn-primary" onClick={borrarProd} style={{marginLeft:"auto",marginRight:"0"}}>
+          Borrar Producto
+        </button>
+        </Center>
       </Box>
     </Center>
   );
