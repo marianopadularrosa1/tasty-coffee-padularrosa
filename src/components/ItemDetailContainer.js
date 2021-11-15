@@ -12,23 +12,21 @@ export default function ItemDetailContainer() {
   useEffect(() => {
     setLoading(true)
     const db = firestore;
-    const collection = db.collection("productos");
-    const promesa = collection.get();
-    let prodsFirebase = [];
+    
+    const promesa2 =db.collection('productos').doc(id).get()
     let producto
-    promesa
-      .then((documento) => {
-        documento.forEach((doc) => {
-          prodsFirebase.push(doc.data());
-        });
-        producto = prodsFirebase.filter((item) => item.id === id)[0];
-        setProduct(producto)
-        setLoading(false)
-      })
-      .catch((error) => {
-        console.log("Hubo un error-->" + error)
-        setLoading(false)
-      })
+    promesa2.then((document)=>{
+      console.log('document filtrado-->',document.data())
+      producto = document.data()
+      setProduct(producto)
+      setLoading(false)
+    }).catch((error) => {
+      console.log("Hubo un error-->" + error)
+      setLoading(false)
+    })
+    
+    
+      
     
   }, [id]);
 
