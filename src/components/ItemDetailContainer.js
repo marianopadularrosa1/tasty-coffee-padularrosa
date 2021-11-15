@@ -21,7 +21,7 @@ export default function ItemDetailContainer() {
       setProduct(producto)
       setLoading(false)
     }).catch((error) => {
-      console.log("Hubo un error-->" + error)
+      console.log("Hubo un error en el get-->" + error)
       setLoading(false)
     })
     
