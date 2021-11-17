@@ -20,7 +20,6 @@ export default function ItemDetail({producto}) {
     agregarProducto(cantidad,producto)
     console.log('cartWidgetCant-->'+cartWidgetCant());
     console.log('AGREGADO A CART-->'+JSON.stringify(cart))
-    console.log('LENGTH CART-->'+cart.length)
     if(JSON.stringify(cart.length)>=0){
       setMostrar(true)
       setMostrarTerminarMiCompra(true)

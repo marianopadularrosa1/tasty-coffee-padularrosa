@@ -3,6 +3,8 @@ import { contexto } from "./cartContext";
 import { VStack,Stack } from "@chakra-ui/react";
 import CartView from "./CartView";
 import { Center, Box, Badge } from "@chakra-ui/react";
+import firebase from "firebase";
+import { firestore } from "./Firebase";
 
 const Cart = () => {
   const { cart, borrarProducto, cartWidgetCant, cartWidgetAmount } =
@@ -14,6 +16,24 @@ const Cart = () => {
   const borrarProd = (producto) => {
     borrarProducto(producto);
   };
+
+  const finalizarCompra=()=>{
+      const user ={
+        nombre:"juan",
+        email:"email@test.com",
+        tel:"123456789"
+      }
+      const order ={
+        buyer: user,
+        items: cart,
+        total: cartWidgetAmount(),
+        date: firebase.firestore.Timestamp.fromDate(new Date())
+      }
+      console.log('order-->',order)
+      const db = firestore
+      const collection = db.collection("orders")
+      const query = collection.add(order)
+  }
   useEffect(() => {
     setProducts(cart);
   }, [cart, products]);
@@ -34,6 +54,7 @@ const Cart = () => {
             Total: $ {cartWidgetAmount()}.-
           </Box>
         </Center>
+        <button className="btn btn-success" onClick={finalizarCompra}  style={{marginLeft:"auto",marginRight:"0"}}>Finalizar Compra</button>
       </div>
     );
   } else {

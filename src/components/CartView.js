@@ -11,8 +11,6 @@ const CartView = ({ key, item }) => {
 
   const borrarProd = () => {
     borrarProducto(item);
-    console.log("Borrar :" + JSON.stringify(item));
-    console.log("Cart :" + JSON.stringify(cart));
   };
   return (
     <Center bg="white" color="black">

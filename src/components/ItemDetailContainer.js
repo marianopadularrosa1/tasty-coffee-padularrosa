@@ -16,7 +16,6 @@ export default function ItemDetailContainer() {
     const promesa2 =db.collection('productos').doc(id).get()
     let producto
     promesa2.then((document)=>{
-      console.log('document filtrado-->',document.data())
       producto = document.data()
       setProduct(producto)
       setLoading(false)

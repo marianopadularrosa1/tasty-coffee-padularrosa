@@ -8,7 +8,23 @@ export default function ItemListContainer() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
- 
+  let getProductosFiltrados = async ()=>{
+  let prodsFirebaseFiltrados=[]
+  const db = firestore
+  const collection2 = db.collection("productos").where('category', '==', categoryId)
+  try{
+    prodsFirebaseFiltrados = await collection2.get()
+        .then((respuesta)=>{
+          respuesta.forEach((doc)=>{prodsFirebaseFiltrados.push({id:doc.id,...doc.data()})})
+          console.log('prodsFirebaseFiltrados respuesta 1-->',prodsFirebaseFiltrados)
+          return prodsFirebaseFiltrados
+        })
+  }
+  catch (error){
+    console.log('error :',error)
+    return error
+  }
+ }
 
   useEffect(() => {
     
@@ -25,8 +41,8 @@ export default function ItemListContainer() {
           if (categoryId) {
             setProducts(
               prodsFirebase.filter((productos) => productos.category === categoryId)
-            );
-            console.log( " => ", prodsFirebase)
+            )
+            console.log('getProductosFiltrados() -->',(getProductosFiltrados().then((doc)=>{console.log(doc)})))
             setLoading(false)
           } else {
             setProducts(prodsFirebase)
