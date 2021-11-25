@@ -7,7 +7,6 @@ export const CustomProvider = ({children}) => {
         console.log("Agregar:"+cantidad,"Producto:"+JSON.stringify(producto.name))
        
         if(isInCart(producto,cart)){
-            console.log("Estaba")
             //agregar catidad al array de cart
             for(let i=0; i<cart.length; i++){
                 if(cart[i].producto.id === producto.id){
@@ -19,9 +18,6 @@ export const CustomProvider = ({children}) => {
             }
         } 
         else{
-            console.log("No Estaba")
-            //agregar al producto con la cantidad
-            //setCart( [...cart , {cantidad,producto} ] )
             const nuevoProducto = {cantidad,producto}
             const copia = [...cart]
             copia.push(nuevoProducto)

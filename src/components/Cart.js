@@ -11,17 +11,41 @@ const Cart = () => {
     useContext(contexto);
   const [products, setProducts] = useState([]);
   const [resultado, setResultado] = useState(false);
+  const [mostrarError, setMostrarError] = useState(false)
+  const [mostrarDatosOk, setMostrarDatosOk] = useState(false)
+  const [datos,setDatos] = useState({
+    nombre:'',
+    telefono:'',
+    email:'',
+  })
   console.log("cartWidgetCant:" + cartWidgetCant());
   console.log("cartWidgetAmount:" + cartWidgetAmount());
 //let resultado;
   const borrarProd = (producto) => {
     borrarProducto(producto);
   };
-  const finalizarCompra=()=>{
+
+  const handleInputchange=(event)=>{
+    console.log(event.target.value)
+    setDatos({
+      ...datos,
+      [event.target.name] : event.target.value
+    })
+}
+  const finalizarCompra=(event)=>{
+    event.preventDefault()
+    if(datos.nombre==='' || datos.email==='' || datos.telefono===''){
+      console.log('Complete sus datos antes de avanzar')
+      setMostrarError(true)
+      return;
+    }else{
+      setMostrarError(false)
+      setMostrarDatosOk(true)
+    }
       const user ={
-        nombre:"juan",
-        email:"email@test.com",
-        tel:"123456789"
+        nombre: datos.nombre,
+        email:datos.email,
+        tel:datos.telefono
       }
       const order ={
         buyer: user,
@@ -30,6 +54,7 @@ const Cart = () => {
         date: firebase.firestore.Timestamp.fromDate(new Date())
       }
       console.log('order-->',order)
+      console.log('Buyer -->',user)
       const db = firestore
       const collection = db.collection("orders")
       const query = collection.add(order)
@@ -66,7 +91,46 @@ const Cart = () => {
             Total: $ {cartWidgetAmount()}.-
           </Box>
         </Center>
-        <button className="btn btn-success" onClick={finalizarCompra}  style={{marginLeft:"auto",marginRight:"0"}}>Finalizar Compra</button>
+        <aside className="container col-md-3">
+         
+          <form className="row" onSubmit={finalizarCompra}>
+          {mostrarError&&<Badge colorScheme="red">Complete todos sus datos antes de avanzar</Badge>}
+            
+            <label for="nombre"> Nombre y Apellido</label>
+            <input
+              className="form-control form-control-sm"
+              type="nombre"
+              name="nombre"
+              placeholder="Nombre y Apellido"
+             onChange={handleInputchange}
+              ></input>
+            <label for="email"> Email</label>
+            <input
+              className="form-control form-control-sm"
+              type="email"
+              name="email"
+              placeholder="Email"
+            onChange={handleInputchange}
+            ></input>
+            <label for="telefono">Telefono</label>
+            <input
+              className="form-control form-control-sm "
+              type="phone"
+              name="telefono"
+              placeholder="Telefono"
+              onChange={handleInputchange}
+            ></input>
+            <button
+              className="btn btn-success"
+              onClick={finalizarCompra}
+              style={{ marginLeft: "auto", marginRight: "0" ,padding:"10px"}}
+              type="submit"
+            >Finalizar Compra</button>
+            {mostrarDatosOk&&<Badge colorScheme="green">Datos completados enviando solicitud</Badge>}
+        
+           </form>
+        </aside>
+        
       </div>
     )
   } 
