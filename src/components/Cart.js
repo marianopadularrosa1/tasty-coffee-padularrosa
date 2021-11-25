@@ -7,7 +7,7 @@ import firebase from "firebase";
 import { firestore } from "./Firebase";
 
 const Cart = () => {
-  const { cart, borrarProducto, cartWidgetCant, cartWidgetAmount } =
+  const { cart, borrarProducto, cartWidgetCant, cartWidgetAmount,vaciar } =
     useContext(contexto);
   const [products, setProducts] = useState([]);
   const [resultado, setResultado] = useState(false);
@@ -18,10 +18,12 @@ const Cart = () => {
     telefono:'',
     email:'',
   })
-//let resultado;
   const borrarProd = (producto) => {
     borrarProducto(producto);
-  };
+  }
+  const vaciarCart= ()=>{
+    vaciar()
+  }
 
   const handleInputchange=(event)=>{
     setDatos({
@@ -54,7 +56,10 @@ const Cart = () => {
       const query = collection.add(order)
       query.then( (response)=>{
         setResultado(response)
+        vaciarCart()
       })
+     
+
   }
   useEffect(() => {
     
