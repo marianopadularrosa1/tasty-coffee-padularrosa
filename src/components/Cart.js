@@ -18,15 +18,12 @@ const Cart = () => {
     telefono:'',
     email:'',
   })
-  console.log("cartWidgetCant:" + cartWidgetCant());
-  console.log("cartWidgetAmount:" + cartWidgetAmount());
 //let resultado;
   const borrarProd = (producto) => {
     borrarProducto(producto);
   };
 
   const handleInputchange=(event)=>{
-    console.log(event.target.value)
     setDatos({
       ...datos,
       [event.target.name] : event.target.value
@@ -35,7 +32,6 @@ const Cart = () => {
   const finalizarCompra=(event)=>{
     event.preventDefault()
     if(datos.nombre==='' || datos.email==='' || datos.telefono===''){
-      console.log('Complete sus datos antes de avanzar')
       setMostrarError(true)
       return;
     }else{
@@ -53,13 +49,10 @@ const Cart = () => {
         total: cartWidgetAmount(),
         date: firebase.firestore.Timestamp.fromDate(new Date())
       }
-      console.log('order-->',order)
-      console.log('Buyer -->',user)
       const db = firestore
       const collection = db.collection("orders")
       const query = collection.add(order)
       query.then( (response)=>{
-        console.log(response.id)
         setResultado(response)
       })
   }
