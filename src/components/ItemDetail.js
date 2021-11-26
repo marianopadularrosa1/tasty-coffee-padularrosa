@@ -2,15 +2,15 @@
 import { Center} from "@chakra-ui/react"
 import { useContext, useState } from "react";
 import { contexto } from "./cartContext";
-import { useHistory } from "react-router-dom"
+import { useHistory,Link } from "react-router-dom"
 import ItemCount from "./ItemCount";
 export default function ItemDetail({producto}) {
   const {push} = useHistory()
-  const {cart,agregarProducto,vaciar,borrarProducto,cartWidgetCant} = useContext(contexto)
+  const {cart,agregarProducto,vaciar,borrarProducto} = useContext(contexto)
   const [mostrar, setMostrar] = useState(false)
   const [mostrarTerminarMiCompra, setMostrarTerminarMiCompra] = useState(false)
-  console.log('CART-->'+JSON.stringify(cart));
-  console.log('producto-->'+JSON.stringify(producto));
+  
+  
 
 
  
@@ -18,8 +18,8 @@ export default function ItemDetail({producto}) {
   const onAdd = (cantidad) => {
     if(cantidad<=0) return;
     agregarProducto(cantidad,producto)
-    console.log('cartWidgetCant-->'+cartWidgetCant());
-    console.log('AGREGADO A CART-->'+JSON.stringify(cart))
+    
+    
     if(JSON.stringify(cart.length)>=0){
       setMostrar(true)
       setMostrarTerminarMiCompra(true)
@@ -57,10 +57,14 @@ export default function ItemDetail({producto}) {
           <p className="card-text">{producto.description}</p>
           <p className="card-text">Stock: {producto.stock}</p>
           <ItemCount onAdd={onAdd} />
+          <Link to="/products" className="btn btn-primary" type="button">Seguir agregando Productos</Link>
+          <Center>
+          <div className="container center">
           {mostrar && <button  className="btn btn-primary" onClick={borrarProd}>Borrar Producto</button>}
           {mostrar && <button  className="btn btn-primary" onClick={vaciarCart}>Vaciar Carrito</button>}
           {mostrarTerminarMiCompra && <button  className="btn btn-primary" onClick={verCarrito}>Ver Carrito</button>}
-          
+          </div>
+          </Center>
         </div>
       </div>
      

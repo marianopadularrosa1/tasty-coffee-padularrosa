@@ -1,13 +1,13 @@
 import { useContext, React, useEffect, useState } from "react";
 import { contexto } from "./cartContext";
-import { VStack,Stack } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 import CartView from "./CartView";
 import { Center, Box, Badge } from "@chakra-ui/react";
 import firebase from "firebase";
 import { firestore } from "./Firebase";
 
 const Cart = () => {
-  const { cart, borrarProducto, cartWidgetCant, cartWidgetAmount,vaciar } =
+  const { cart,  cartWidgetAmount,vaciar } =
     useContext(contexto);
   const [products, setProducts] = useState([]);
   const [resultado, setResultado] = useState(false);
@@ -18,9 +18,7 @@ const Cart = () => {
     telefono:'',
     email:'',
   })
-  const borrarProd = (producto) => {
-    borrarProducto(producto);
-  }
+  
   const vaciarCart= ()=>{
     vaciar()
   }

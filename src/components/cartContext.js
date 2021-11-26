@@ -4,8 +4,6 @@ export const {Provider} = contexto
 export const CustomProvider = ({children}) => {
     const [cart, setCart] = useState([])
     const agregarProducto = (cantidad,producto) => {
-        console.log("Agregar:"+cantidad,"Producto:"+JSON.stringify(producto.name))
-       
         if(isInCart(producto,cart)){
             //agregar catidad al array de cart
             for(let i=0; i<cart.length; i++){
@@ -24,7 +22,6 @@ export const CustomProvider = ({children}) => {
             setCart( copia )
         }
        
-        console.log('CART--->'+JSON.stringify(cart))
     }
 
     const isInCart = (producto, arrayProductos) => {
@@ -43,7 +40,6 @@ export const CustomProvider = ({children}) => {
                 }
             }
         } 
-        console.log("borro el producto del cart"+JSON.stringify(producto))
     }
 
     const vaciar = () => {
