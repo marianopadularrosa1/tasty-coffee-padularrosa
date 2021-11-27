@@ -1,6 +1,6 @@
 # Proyecto Tasty Coffee e-commerce para delivery de café de Autor 
 
-![TastyCoffee](./public/favicon.ico)
+![TastyCoffee](https://cafesabora.com/sites/default/files/taza-para-cafe_0.jpg)
 
 
 ## Inicio de Proyecto

@@ -23,13 +23,9 @@ export default function ItemListContainer() {
         documento.forEach((doc) => {
           prodsFirebase.push(doc.data());
         });
-        if (categoryId) {
           setProducts(prodsFirebase)
           setLoading(false)
-        } else {
-          setProducts(prodsFirebase)
-          setLoading(false)
-        }
+        
       })
       .catch((error) => {
         console.log("Hubo un error-->" + error);
