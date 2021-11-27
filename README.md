@@ -1,4 +1,4 @@
-# Proyecto Tasty coffee e-commerce de delivery de cafe
+# Proyecto Tasty Coffee e-commerce para delivery de café de Autor 
 
 ![TastyCoffee](./public/favicon.ico)
 
