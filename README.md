@@ -1,6 +1,6 @@
 # Proyecto Tasty coffee e-commerce de delivery de cafe
 
-![TastyCoffee](C:\Users\Mariano Padularrosa\Documents\CODERHOUSE\ReactJS\tasty-coffee-padularrosa\tasty-coffee-padularrosa\public\favicon.ico)
+![TastyCoffee](./public/favicon.ico)
 
 
 ## Iniciar proyecto
