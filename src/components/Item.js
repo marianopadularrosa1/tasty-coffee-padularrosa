@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom";
 import { Center,Box,Badge} from "@chakra-ui/react"
-// se le dice a un componente bruto
-// un componente que no tiene estado
-// que solo recibe unas propiedades y las pinta
 export default function Item({ item }) {
   return (
     <>
