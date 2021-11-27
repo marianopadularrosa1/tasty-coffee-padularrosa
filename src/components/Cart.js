@@ -67,7 +67,8 @@ const Cart = () => {
   if(resultado){
     return(
     <div className="App">
-    <h1>Su codigo de Operacion es: {resultado.id}</h1>
+    <h1><Badge colorScheme="green" variant="outline" ml="1" fontSize="20px">MUCHAS GRACIAS POR SU COMPRA!!</Badge></h1>
+    <h1>Su código de Operación es: <Badge colorScheme="red">{resultado.id}</Badge></h1>
   </div>
     )
   }
