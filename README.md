@@ -5,7 +5,10 @@
 
 ## Inicio de Proyecto
 
-### `npm start`
+### git clone https://github.com/marianopadularrosa1/tasty-coffee-padularrosa
+### cd tasty-coffee-padularrosa
+### npm install
+### npm start
 
 ## Dependencias
 ### npm i react-router-dom
