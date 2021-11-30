@@ -5,7 +5,10 @@
 
 ## Inicio de Proyecto
 
-### `npm start`
+### git clone https://github.com/marianopadularrosa1/tasty-coffee-padularrosa
+### cd tasty-coffee-padularrosa
+### npm install
+### npm start
 
 ## Dependencias
 ### npm i react-router-dom
@@ -25,3 +28,7 @@ Dependencia utilizada para interactuar con una base de datos provista por Google
 ### @emotion/react
 ### @emotion/styled
 [Emotion Docs](https://emotion.sh/docs/introduction)
+
+### Deploy in vercel
+
+[Prod-Env](https://tasty-coffee-padularrosa.vercel.app/)
